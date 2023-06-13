@@ -1,0 +1,53 @@
+include partials/header.pug
+    include partials/navbar.pug
+    div(style="height: 60px; width: 100vw")
+    form.px-3.py-2(action="/new_collection" method="POST")
+
+        div.form-group.row.mt-2
+            label.mx-1.fs-5(for="title") Title:
+        div.row.mx-1
+            input#url.form-control-lg(name="title" type="text" placeholder="Title of collection")
+        div.form-group.row.px-1.mt-2
+            label.col-form-label-lg.fs-5 Days of the week
+            div.col-6.px-3
+                div
+                    input#day1(type="checkbox" name="sunday" value="true")
+                    label.mx-1.px-1(for="day1") Sun
+                div
+                    input#day2(type="checkbox" name="monday" value="true")
+                    label.mx-1.px-1(for="day2") Mon
+                div
+                    input#day3(type="checkbox" name="tuesday" value="true")
+                    label.mx-1.px-1(for="day3") Tue
+                div
+                    input#day4(type="checkbox" name="wednesday" value="true")
+                    label.mx-1.px-1(for='day4') Wed
+            div.col-6.px-3
+                div
+                    input#day5(type="checkbox" name="thursday" value="true")
+                    label.mx-1.px-1(for='day5') Thu
+                div
+                    input#day6(type="checkbox" name="friday" value="true")
+                    label.mx-1.px-1(for='day6') Fri
+                div
+                    input#day7(type="checkbox" name="saturday" value="true")
+                    label.mx-1.px-1(for='day7') Sat
+
+        div.form-group.row.px-1.mt-2
+            label.col-form-label-lg.fs-5 Time of day
+            div.mx-5
+                input#morn(type="checkbox" name="morning" value="true")
+                label.mx-1.px-1(for="morn") Morning
+            div.mx-5
+                input#afternoon(type="checkbox" name="afternoon" value="true")
+                label.mx-1.px-1(for="afternoon") Afternoon
+            div.mx-5
+                input#evening(type="checkbox" name="evening" value="true")
+                label.mx-1.px-1(for="evening") Evening
+
+        input(type="hidden" name="videoData" value=`${JSON.stringify(videoData)}`)
+        .row.px-3.mt-2
+            button#newCollectionButton.btn.btn-primary(type="submit") Submit
+
+
+    include partials/footer.pug
